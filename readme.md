@@ -29,4 +29,4 @@ func main() {
 }
 ```
 
-> UID implements the `encoding.BinaryMarshaler`, `encoding.BinaryUnmarshaler`, `encoding.TextMarshaler`, `encoding.TextUnmarshaler`, `driver.Valuer`, `sql.Scanner` for ease of use with reading from and writing to other mediums.
+> UID implements the `encoding.BinaryMarshaler`, `encoding.BinaryUnmarshaler`, `encoding.TextMarshaler`, `encoding.TextUnmarshaler`, `json.Marshaler`, `json.Unmarshaler`, `driver.Valuer`, `sql.Scanner` for ease of use with reading from and writing to other mediums.

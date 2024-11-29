@@ -64,6 +64,14 @@ func (uid *UID) UnmarshalText(data []byte) error {
 	return nil
 }
 
+func (uid UID) MarshalJSON() ([]byte, error) {
+	return uid.MarshalText()
+}
+
+func (uid *UID) UnmarshalJSON(data []byte) error {
+	return uid.UnmarshalText(data)
+}
+
 func New() UID {
 	uid := UID{}
 	rand.Read(uid[:])
