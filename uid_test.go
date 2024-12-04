@@ -1,6 +1,7 @@
 package uid_test
 
 import (
+	"fmt"
 	"testing"
 
 	"github.com/CanPacis/uid"
@@ -77,6 +78,14 @@ func TestMarshal(t *testing.T) {
 		t.Error(err)
 	}
 	if string(bin) != id.String() {
-		t.Errorf("expected bin string to be %s but got %s", bin, id.String())
+		t.Errorf("expected bin string to be %s but got %s", id.String(), bin)
+	}
+
+	bin, err = id.MarshalJSON()
+	if err != nil {
+		t.Error(err)
+	}
+	if string(bin) != fmt.Sprintf(`"%s"`, id.String()) {
+		t.Errorf("expected bin string to be %s but got %s", fmt.Sprintf(`"%s"`, id.String()), bin)
 	}
 }

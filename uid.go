@@ -4,6 +4,7 @@ import (
 	"crypto/rand"
 	"database/sql/driver"
 	"encoding/base64"
+	"encoding/json"
 	"errors"
 	"fmt"
 )
@@ -65,11 +66,21 @@ func (uid *UID) UnmarshalText(data []byte) error {
 }
 
 func (uid UID) MarshalJSON() ([]byte, error) {
-	return uid.MarshalText()
+	text, err := uid.MarshalText()
+	if err != nil {
+		return nil, err
+	}
+
+	return json.Marshal(string(text))
 }
 
 func (uid *UID) UnmarshalJSON(data []byte) error {
-	return uid.UnmarshalText(data)
+	text := ""
+	if err := json.Unmarshal(data, &text); err != nil {
+		return err
+	}
+
+	return uid.UnmarshalText([]byte(text))
 }
 
 func New() UID {
