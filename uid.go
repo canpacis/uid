@@ -8,7 +8,7 @@ import (
 	"fmt"
 )
 
-var encoding = base64.NewEncoding("0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ@*")
+var encoding = base64.NewEncoding("0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!$")
 
 var ErrInvalidUIDFormat = errors.New("invalid uid format")
 
