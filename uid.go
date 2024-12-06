@@ -83,6 +83,10 @@ func (uid *UID) UnmarshalJSON(data []byte) error {
 	return uid.UnmarshalText([]byte(text))
 }
 
+func (uid UID) IsEmpty() bool {
+	return uid.String() == "0000000000000000"
+}
+
 func New() UID {
 	uid := UID{}
 	rand.Read(uid[:])

@@ -15,6 +15,14 @@ func TestUID(t *testing.T) {
 	if len(id.String()) != 16 {
 		t.Errorf("expected uid string length to be 12 but got %d", len(id))
 	}
+
+	if id.IsEmpty() {
+		t.Error("expected id to be not empty")
+	}
+	id = uid.UID{}
+	if !id.IsEmpty() {
+		t.Error("expected id to be empty")
+	}
 }
 
 func TestParse(t *testing.T) {
