@@ -1,3 +1,3 @@
-module github.com/CanPacis/uid
+module github.com/canpacis/uid
 
 go 1.23.0

@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/CanPacis/uid"
+	"github.com/canpacis/uid"
 )
 
 func TestUID(t *testing.T) {
